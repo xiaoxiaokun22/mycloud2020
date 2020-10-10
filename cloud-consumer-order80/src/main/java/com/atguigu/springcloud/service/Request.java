@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.util.*;
 
 @Service("CloudRequest")
@@ -181,5 +183,16 @@ public class Request {
             attrs.put(attr, val);
         }
         return attrs;
+    }
+    public String getQueryString(){
+        String val = "";
+        if(request.getQueryString() != null){
+            try {
+                val = URLDecoder.decode(request.getQueryString(),"utf-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+        return val;
     }
 }
