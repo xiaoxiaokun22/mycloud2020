@@ -21,9 +21,12 @@ import java.util.Map;
 @Slf4j
 public class OrderController extends BaseController{
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+//    public static final String PAYMENT_URL = "http://localhost:8001";
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+
     @Resource
     private RestTemplate restTemplate;
+
     @GetMapping("/consumer/payment/create")
     public Response create(){
         String queryString = StrUtil.isEmpty(args.getQueryString()) ? "" : "?" + args.getQueryString();

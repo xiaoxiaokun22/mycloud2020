@@ -1,8 +1,8 @@
 server:
-  port: 8000
+  port: 8002
 spring:
   application:
-    name: cloud-order-service
+    name: cloud-payment-service
   datasource:
     url: jdbc:mysql://182.92.179.85:3306/db2019?userUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
     username: cms_user
