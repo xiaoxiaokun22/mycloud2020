@@ -15,6 +15,12 @@ eureka:
     fetach-register: true
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+#    #eureka客户端向eureka服务发送的心跳，默认30s
+#    lease-renewal-interval-in-seconds: 1
+#    lease-expiration-duration-in-seconds: 2
 mybatis-plus:
   configuration:
     call-setters-on-nulls: true
