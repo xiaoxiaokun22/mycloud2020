@@ -1,0 +1,17 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    url: jdbc:mysql://182.92.179.85:3306/db2019?userUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    username: cms_user
+    password: cms_12345678..
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    zookeeper:
+      connect-string: 182.92.179.85:2181
+mybatis-plus:
+  configuration:
+    call-setters-on-nulls: true
