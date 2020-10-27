@@ -6,6 +6,7 @@ import com.atguigu.springcloud.entities.Payment;
 import com.oracle.tools.packager.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,14 @@ public class OrderController extends BaseController{
     @GetMapping("/consumer/payment/get/{id}")
     public Response getInfo(@PathVariable("id") Long id){
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/"+id,Response.class);
+    }
+    @GetMapping("/consumer/payment/getForEntity/{id}")
+    public Response getInfo2(@PathVariable("id") Long id){
+        ResponseEntity<Response> res =  restTemplate.getForEntity(PAYMENT_URL + "/payment/get/"+id,Response.class);
+        if(res.getStatusCode().is2xxSuccessful()){
+            return res.getBody();
+        }else{
+            return Response.ng("error");
+        }
     }
 }
