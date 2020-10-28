@@ -29,7 +29,7 @@ public class PaymentServiceImpl extends BaseServiceImpl<PaymentMapper, Payment> 
         Map<String,Object> res = new HashMap<>();
         res.put("id",payment.getId());
         res.put("serial",payment.getSerial());
-        res.put("port",serverPort);
+        res.put("port2",serverPort);
         return res;
     }
 

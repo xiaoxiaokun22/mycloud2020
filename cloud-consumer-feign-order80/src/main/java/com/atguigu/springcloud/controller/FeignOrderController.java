@@ -15,8 +15,13 @@ public class FeignOrderController {
     @Resource
     private PaymentFeignService paymentFeignService;
 
-    @GetMapping("/payment/get/{id}")
+    @GetMapping("/consumer/payment/get/{id}")
     public Response getPaymentById(@PathVariable("id")Long id){
         return paymentFeignService.getPaymentById(id);
+    }
+
+    @GetMapping("/consumer/payment/feign/timeout")
+    Response timeout(){
+        return paymentFeignService.timeout();
     }
 }
