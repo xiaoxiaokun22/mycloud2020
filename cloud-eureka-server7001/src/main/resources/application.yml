@@ -7,7 +7,10 @@ eureka:
     register-with-eureka: false
     fetach-register: false
     service-url:
-      defaultZone: http://eureka7002.com:7002/eureka/
+        #指向其他eureka集群服务地址
+#      defaultZone: http://eureka7002.com:7002/eureka/
+        #单机模式指向自己
+        defaultZone: http://eureka7001.com:7001/eureka/
 #  server:
 #      #关闭自我保护模式
 #    enable-self-preservation: false
