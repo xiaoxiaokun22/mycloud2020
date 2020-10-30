@@ -3,13 +3,13 @@ package com.atguigu.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 @SpringBootApplication
-@EnableFeignClients
-@EnableHystrix
-public class FeignHystrixOrder80 {
+@EnableHystrixDashboard
+public class HystrixDashboardMain9001 {
+    //http://localhost:9001/hystrix
     public static void main(String[] args) {
-        SpringApplication.run(FeignHystrixOrder80.class,args);
+        SpringApplication.run(HystrixDashboardMain9001.class,args);
     }
 }

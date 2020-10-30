@@ -29,4 +29,10 @@ public class PaymentController {
 
         return paymentService.getPaymentTimeout(id);
     }
+
+    @GetMapping("/payment/get/detail/{id}")
+    public Response getDetail(@PathVariable("id")Integer id){
+
+        return paymentService.getDetail(id);
+    }
 }
