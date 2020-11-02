@@ -1,0 +1,29 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: payemnt_routh
+          uri: lb://CLOUD-PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/get/**
+            - After=2020-11-03T10:32:58.129+08:00[Asia/Shanghai]
+        - id: payemnt_routh2
+          uri: lb://CLOUD-PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/discovery/**
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetach-register: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+mybatis-plus:
+  configuration:
+    call-setters-on-nulls: true
