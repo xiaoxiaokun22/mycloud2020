@@ -1,0 +1,29 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        # springcloud config 通过github获取配置信息
+        git:
+          uri: https://github.com/xiaoxiaokun22/springcloud-config.git
+          search-path:
+            - springcloud-config
+          default-label: main
+  datasource:
+    url: jdbc:mysql://182.92.179.85:3306/db2019?userUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    username: cms_user
+    password: cms_12345678..
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+eureka:
+  client:
+    register-with-eureka: true
+    fetach-register: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+mybatis-plus:
+  configuration:
+    call-setters-on-nulls: true
