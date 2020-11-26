@@ -18,6 +18,11 @@ spring:
     password: cms_12345678..
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
 eureka:
   client:
     register-with-eureka: true
@@ -27,3 +32,13 @@ eureka:
 mybatis-plus:
   configuration:
     call-setters-on-nulls: true
+# 暴露bus刷新配置的端点
+# 1.通知所有config client：curl -X POST http://192.168.2.60:3344/actuator/bus-refresh
+# 2.定点通知指定config client：
+#   格式：- curl -X POST http://192.168.2.60:3344/actuator/bus-refresh/config客户端微服务名称:端口
+#   例如：- curl -X POST http://192.168.2.60:3344/actuator/bus-refresh/cloud-config-client:3355
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
