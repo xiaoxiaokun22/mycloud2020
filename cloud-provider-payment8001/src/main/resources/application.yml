@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      #采样率 0-1之间
+      probability: 1
   datasource:
     url: jdbc:mysql://182.92.179.85:3306/db2019?userUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
     username: cms_user
